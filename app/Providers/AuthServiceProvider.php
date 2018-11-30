@@ -25,7 +25,16 @@ class AuthServiceProvider extends ServiceProvider
     {
         $this->registerPolicies();
 
-        Passport::routes();
-        //
+        Passport::routes(null, ['middleware' => 'tenancy.enforce']);
+
+        $this->commands([
+          \Laravel\Passport\Console\InstallCommand::class,
+          \Laravel\Passport\Console\ClientCommand::class,
+          \Laravel\Passport\Console\KeysCommand::class,
+        ]);
+
+        Passport::tokensExpireIn(\Carbon\Carbon::now()->addMinutes(10));
+        Passport::refreshTokensExpireIn(\Carbon\Carbon::now()->addDays(1));
+
     }
 }
