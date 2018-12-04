@@ -94,11 +94,12 @@ class EmailVerificationTest extends TestCase
             'id' => 1,
             'email_verified_at' => null,
         ]);
+        $user2 = factory(User::class)->create(['id' => 2, 'email_verified_at' => null]);
 
         $response = $this->actingAs($user)->get($this->validVerificationVerifyRoute(2));
         $response->assertForbidden();
+        $this->assertFalse($user2->fresh()->hasVerifiedEmail());
 
-        //$response->assertRedirect($this->successfulVerificationRoute());
     }
 
     public function testUserIsRedirectedToCorrectRouteWhenAlreadyVerified()
