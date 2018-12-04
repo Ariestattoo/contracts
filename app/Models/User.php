@@ -2,12 +2,12 @@
 
 namespace App\Models;
 
-use Hyn\Tenancy\Database\Connection;
-use Hyn\Tenancy\Traits\UsesTenantConnection;
+use App\Models\Traits\UsesTenantConnectionWithFallback;
 use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 use Laravel\Passport\HasApiTokens;
+use Spatie\Permission\Traits\HasRoles;
 
 /**
  * App\Models\User
@@ -49,7 +49,7 @@ use Laravel\Passport\HasApiTokens;
  */
 class User extends Authenticatable implements MustVerifyEmail
 {
-    use HasApiTokens, Notifiable, UsesTenantConnection;
+    use HasApiTokens, Notifiable, UsesTenantConnectionWithFallback,HasRoles ;
 
     /**
      * The attributes that are mass assignable.
@@ -75,8 +75,7 @@ class User extends Authenticatable implements MustVerifyEmail
     /**
      * @return string
      */
-    public function getConnectionName()
-    {
-        return app(\Hyn\Tenancy\Environment::class)->tenant() ? app(Connection::class)->tenantName() : app(Connection::class)->systemName();
-    }
+
+
+
 }
