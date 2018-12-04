@@ -1,6 +1,7 @@
 <?php
 
 use App\Models\Permission;
+use Hyn\Tenancy\Database\Connection;
 use Illuminate\Database\Seeder;
 use App\Models\Role;
 
