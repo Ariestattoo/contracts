@@ -2,9 +2,9 @@
 
 use App\Models\Permission;
 use Illuminate\Database\Seeder;
-use Spatie\Permission\Models\Role;
+use App\Models\Role;
 
-class TenantDatabaseSeeder extends Seeder
+class RolesAndPermissionSeeder extends Seeder
 {
     public function run()
     {

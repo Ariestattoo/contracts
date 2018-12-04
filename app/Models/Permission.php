@@ -2,10 +2,10 @@
 
 namespace App\Models;
 
-use Hyn\Tenancy\Traits\UsesTenantConnection;
+use App\Models\Traits\UsesTenantConnectionWithFallback;
 use Spatie\Permission\Models\Permission as BasePermission;
 
 class Permission extends BasePermission
 {
-    use UsesTenantConnection;
+    use UsesTenantConnectionWithFallback;
 }

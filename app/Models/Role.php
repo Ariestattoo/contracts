@@ -2,10 +2,10 @@
 
 namespace App\Models;
 
-use Hyn\Tenancy\Traits\UsesTenantConnection;
+use App\Models\Traits\UsesTenantConnectionWithFallback;
 use Spatie\Permission\Models\Role as BaseRole;
 
 class Role extends BaseRole
 {
-    use UsesTenantConnection;
+    use UsesTenantConnectionWithFallback;
 }
