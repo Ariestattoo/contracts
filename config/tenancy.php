@@ -139,7 +139,7 @@ return [
      * A good use case is when you have set "tenant" as the default
      * database connection.
      */
-    'early-identification' => env('TENANCY_EARLY_IDENTIFICATION', true),
+    'early-identification' => env('TENANCY_EARLY_IDENTIFICATION', false),
 
     /**
      * Abort application execution in case no hostname was identified. This will throw a
@@ -280,8 +280,10 @@ return [
       'force-tenant-connection-of-models' => [
 //            App\User::class
     ],
-      'force-system-connection-of-models' => [
-//            App\User::class
+      'xxxforce-system-connection-of-models' => [
+            App\Models\User::class,
+            App\Models\Role::class,
+            App\Models\Permission::class
     ],
   ],
 
