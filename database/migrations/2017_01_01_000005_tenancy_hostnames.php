@@ -34,7 +34,7 @@ class TenancyHostnames extends AbstractMigration
             $table->timestamps();
             $table->softDeletes();
 
-            $table->foreign('website_id')->references('id')->on('websites')->onDelete('set null');
+            $table->foreign('website_id')->references('id')->on('websites')->onDelete('cascade');
         });
     }
 
