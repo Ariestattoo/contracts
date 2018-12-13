@@ -32,37 +32,6 @@ return [
   */
 
   'connections' => [
-
-    'system' => [
-      'driver'      => 'mysql',
-      'host'        => env('TENANCY_HOST', '127.0.0.1'),
-      'port'        => env('TENANCY_PORT', '3306'),
-      'database'    => env('TENANCY_DATABASE', 'tenancy'),
-      'username'    => env('TENANCY_USERNAME', 'tenancy'),
-      'password'    => env('TENANCY_PASSWORD', ''),
-      'unix_socket' => env('DB_SOCKET', ''),
-      'charset'     => 'utf8mb4',
-      'collation'   => 'utf8mb4_unicode_ci',
-      'prefix'      => '',
-      'strict'      => true,
-      'engine'      => null,
-    ],
-
-    'system_testing' => [
-      'driver'      => 'mysql',
-      'host'        => env('TENANCY_HOST', '127.0.0.1'),
-      'port'        => env('TENANCY_PORT', '3306'),
-      'database'    => env('TENANCY_DATABASE_TEST', 'tenancy'),
-      'username'    => env('TENANCY_USERNAME', 'tenancy'),
-      'password'    => env('TENANCY_PASSWORD', ''),
-      'unix_socket' => env('DB_SOCKET', ''),
-      'charset'     => 'utf8mb4',
-      'collation'   => 'utf8mb4_unicode_ci',
-      'prefix'      => '',
-      'strict'      => true,
-      'engine'      => null,
-    ],
-
     'sqlite' => [
       'driver'                  => 'sqlite',
       'database'                => env('DB_DATABASE', database_path('database.sqlite')),
@@ -70,14 +39,30 @@ return [
       'foreign_key_constraints' => env('DB_FOREIGN_KEYS', true),
     ],
 
-    'mysql' => [
-      'driver'         => 'mysql',
-      'host'           => env('DB_HOST', '127.0.0.1'),
-      'port'           => env('DB_PORT', '3306'),
-      'database'       => env('DB_DATABASE', 'forge'),
-      'username'       => env('DB_USERNAME', 'forge'),
-      'password'       => env('DB_PASSWORD', ''),
-      'unix_socket'    => env('DB_SOCKET', ''),
+    'system' => [
+      'driver'         => env('DB_SYSTEM_DRIVER', 'mysql'),
+      'host'           => env('DB_SYSTEM_HOST', '127.0.0.1'),
+      'port'           => env('DB_SYSTEM_PORT', '3306'),
+      'database'       => env('DB_SYSTEM_DATABASE', ''),
+      'username'       => env('DB_SYSTEM_USERNAME', ''),
+      'password'       => env('DB_SYSTEM_PASSWORD', ''),
+      'unix_socket'    => env('DB_SYSTEM_SOCKET', ''),
+      'charset'        => 'utf8mb4',
+      'collation'      => 'utf8mb4_unicode_ci',
+      'prefix'         => '',
+      'prefix_indexes' => true,
+      'strict'         => true,
+      'engine'         => null,
+    ],
+
+    'tenant' => [
+      'driver'         => env('DB_TENANT_DRIVER', 'mysql'),
+      'host'           => env('DB_TENANT_HOST', '127.0.0.1'),
+      'port'           => env('DB_TENANT_PORT', '3306'),
+      'database'       => env('DB_TENANT_DATABASE', ''),
+      'username'       => env('DB_TENANT_USERNAME', ''),
+      'password'       => env('DB_TENANT_PASSWORD', ''),
+      'unix_socket'    => env('DB_TENANT_SOCKET', ''),
       'charset'        => 'utf8mb4',
       'collation'      => 'utf8mb4_unicode_ci',
       'prefix'         => '',

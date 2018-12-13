@@ -59,7 +59,7 @@ return [
      *
      * @warn This won't work if disable-random-id is true.
      */
-    'random-id-generator' => Hyn\Tenancy\Generators\Uuid\ShaGenerator::class,
+    'random-id-generator' => App\Libraries\Tenancy\EnvAwareShaGenerator::class,
 
     /**
      * Enable this flag in case you're using a driver that does not support
@@ -139,7 +139,7 @@ return [
      * A good use case is when you have set "tenant" as the default
      * database connection.
      */
-    'early-identification' => env('TENANCY_EARLY_IDENTIFICATION', false),
+    'early-identification' => env('TENANCY_EARLY_IDENTIFICATION', true),
 
     /**
      * Abort application execution in case no hostname was identified. This will throw a
@@ -223,7 +223,7 @@ return [
      *
      * @warn specify a valid fully qualified class name.
      */
-      'tenant-seed-class' => RolesAndPermissionSeeder::class,
+      'tenant-seed-class' => DatabaseSeeder::class,
       //      eg an admin seeder under `app/Seeders/AdminSeeder.php`:
       //        'tenant-seed-class' => App\Seeders\AdminSeeder::class,
 
