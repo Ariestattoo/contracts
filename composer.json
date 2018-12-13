@@ -44,7 +44,6 @@
         },
         "classmap": [
             "database/seeds",
-            "database/seeds/tenant",
             "database/factories"
         ]
     },
