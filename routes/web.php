@@ -13,5 +13,5 @@
 
 Auth::routes(['verify' => true]);
 
-Route::get('/dashboard', 'ConsoleController@index')->name('dashboard');
+Route::get('/dashboard', 'AdminController@index')->name('dashboard');
 Route::get('/', 'Controller@landing')->name('landing');
