@@ -3,14 +3,24 @@
 namespace Tests;
 
 use Illuminate\Foundation\Testing\TestCase as BaseTestCase;
+use Illuminate\Foundation\Testing\WithoutMiddleware;
+use Illuminate\Support\Facades\App;
+use Illuminate\Support\Facades\Session;
 
 abstract class TestCase extends BaseTestCase
 {
     use CreatesApplication;
 
-    public function setUp(): void
+    protected function setUp()
     {
+        if (env('APP_ENV')==='testing') {
+           // echo 'Testing Environment Verified';
+        }
+        else {
+            dd('what');
+        }
         parent::setUp();
-        $this->artisan('db:seed');
+
     }
+
 }

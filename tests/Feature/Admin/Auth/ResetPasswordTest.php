@@ -31,7 +31,7 @@ class ResetPasswordTest extends TestCase
 
     protected function passwordResetPostRoute()
     {
-        return '/password/reset';
+        return route('password.update');
     }
 
     protected function successfulPasswordResetRoute()
