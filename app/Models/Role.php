@@ -2,8 +2,7 @@
 
 namespace App\Models;
 
-use App\Models\Traits\UsesTenantConnectionWithFallback;
-use Hyn\Tenancy\Traits\UsesTenantConnection;
+use Hyn\Tenancy\Traits\UsesSystemConnection;
 use Spatie\Permission\Models\Role as BaseRole;
 
 /**
@@ -29,5 +28,5 @@ use Spatie\Permission\Models\Role as BaseRole;
  */
 class Role extends BaseRole
 {
-    use UsesTenantConnectionWithFallback;
+    use UsesSystemConnection;
 }
